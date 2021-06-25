@@ -1,21 +1,31 @@
 import React from 'react';
 import { 
+  ActivityIndicator,
+  Alert,
   Image,
   Text, 
   View,
 } from 'react-native';
 
+import { useAuth } from '../../hooks/auth';
+
 import IllustrationImage from '../../assets/illustration.png'
 import { ButtonIcon } from '../../components/ButtonIcon';
-import { useNavigation } from '@react-navigation/native';
 import { Background } from '../../components/Background'
 import { styles } from './styes';
+import { theme } from '../../global/styles/theme';
 
 export function SignIn() {
-  const navigation = useNavigation();
 
-  function handleSignIn() {
-    navigation.navigate('Home')
+  const { loading, signIn } = useAuth()
+  
+  async function handleSignIn() {
+    try {
+      await signIn();
+
+    } catch (error) {
+      Alert.alert(error)
+    }
   }
 
   return(
@@ -39,10 +49,13 @@ export function SignIn() {
             favoritos com seus amigos
           </Text>
 
-          <ButtonIcon 
-            title={'Entre com Discord'} 
-            onPress={handleSignIn}
-          />
+          {
+            loading ? <ActivityIndicator color={theme.colors.primary} /> :
+            <ButtonIcon 
+              title={'Entre com Discord'} 
+              onPress={handleSignIn}
+            />
+          }
         </View>
       </View>
     </Background>
