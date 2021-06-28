@@ -44,7 +44,7 @@ export function AppointmentDetails(){
          setWidget(response.data);
          setLoading(false)
       } catch (error) {
-         Alert.alert('Verifique as configurações do servidor. Verifique se o Widget do servidor está habilitado!')
+         Alert.alert('Verifique as configurações do servidor! Verifique se o Widget do servidor está habilitado!')
       } finally {
          setLoading(false)
       }
