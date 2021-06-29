@@ -5,7 +5,6 @@
 
    <p align="center"> Um app para você agendar partidas dos seus games favoritos com seus amigos! </p>
    
-   <br>
 
    <img src="https://img.shields.io/badge/license-MIT-brightgreen">
    <img src="https://img.shields.io/static/v1?label=repo%20status&message=WIP&color=yellow&style=%3CSTYLE%3E&logo=%3CLOGO%3E">
