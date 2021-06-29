@@ -2,10 +2,10 @@ import React from "react";
 import { View, Text, Alert } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 
-
 import { useAuth } from "../../hooks/auth";
-
+import { randomGreeting } from "../../utils/greetings";
 import { Avatar } from "../Avatar";
+
 import { styles } from "./styles";
 
 export function Profile() {
@@ -45,7 +45,7 @@ export function Profile() {
             </View>
 
             <Text style={styles.message}>
-               Hoje é dia de duelo!
+               Hoje é dia de { randomGreeting }!
             </Text>
          </View>
 
